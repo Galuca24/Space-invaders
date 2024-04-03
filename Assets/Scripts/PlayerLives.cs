@@ -27,6 +27,7 @@ public class PlayerLives : MonoBehaviour
         if (collision.collider.gameObject.tag == "Enemy")
         {
             Destroy(collision.collider.gameObject);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             lives -= 1;
             for (int i=0; i<livesUI.Length; i++)
             {
@@ -42,7 +43,6 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
-                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 gameOverPanel.SetActive(true);
                 pointManager.HighScoreUpdate();
@@ -55,7 +55,9 @@ public class PlayerLives : MonoBehaviour
         if (collision.gameObject.tag == "Enemy Projectile")
         {
             Destroy(collision.gameObject);
-                       lives -= 1;
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            lives -= 1;
             for (int i = 0; i < livesUI.Length; i++)
             {
                 if (i < lives)
@@ -70,12 +72,12 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
-                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 gameOverPanel.SetActive(true);
                 pointManager.HighScoreUpdate();
             }
         }
-    }   
+    }
+
 }
 
