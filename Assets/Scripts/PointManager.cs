@@ -37,8 +37,8 @@ public class PointManager : MonoBehaviour
             PlayerPrefs.SetInt("SaveHighScore", score);
         }
 
-        finalScoreText.text = score.ToString();
-        highScoreText.text = PlayerPrefs.GetInt("SaveHighScore").ToString();
+        finalScoreText.text ="Score: " + score.ToString();
+        highScoreText.text ="High score: " + PlayerPrefs.GetInt("SaveHighScore").ToString();
     }
 
 
