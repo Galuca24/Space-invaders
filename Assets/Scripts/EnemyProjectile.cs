@@ -24,7 +24,6 @@ public class EnemyProjectile : MonoBehaviour
         {
 
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Boundary")

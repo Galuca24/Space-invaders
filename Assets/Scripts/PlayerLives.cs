@@ -43,6 +43,7 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
+                Debug.Log("Game Over");
                 Destroy(gameObject);
                 gameOverPanel.SetActive(true);
                 pointManager.HighScoreUpdate();
@@ -55,9 +56,9 @@ public class PlayerLives : MonoBehaviour
         if (collision.gameObject.tag == "Enemy Projectile")
         {
             Destroy(collision.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
+            Debug.Log("Player hit by enemy projectile");
             lives -= 1;
+            Debug.Log("Lives: " + lives);
             for (int i = 0; i < livesUI.Length; i++)
             {
                 if (i < lives)
@@ -72,6 +73,7 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
+                Debug.Log("Game Over");
                 Destroy(gameObject);
                 gameOverPanel.SetActive(true);
                 pointManager.HighScoreUpdate();
